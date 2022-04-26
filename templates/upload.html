@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title> Emergency reponse time open data analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1P7JL01XL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-E1P7JL01XL');
+   </script>
+   <body>
+      <header>
+         <h1> &nbsp; Emergency response time open data</h1>
+         <h2> &nbsp; Proof-of-concept: Please submit data from cities in California only</h2>
+         <h2> &nbsp; Proof-of-concept: Results will generated on random sample of 100 data points</h2>
+      </header>
+      <div style="text-align:center">
+         <img src="{{url_for('static', filename='moti_logo.png')}}" width = "200" height = "200" />
+      </div>
+      <form action = "https://sj-open-data-api.herokuapp.com/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <p> &nbsp; Response time data file (.csv or .csv.zip formats only) <input type = "file" name = "response_file" />
+         <p> &nbsp; Name of latitude column <input type = "text" name = "lat_col" /></p>
+         <p> &nbsp; Name of longitude column <input type = "text" name = "long_col" /></p>
+         <p> &nbsp; Name of start time column <input type = "text" name = "start_time_col" /></p>
+         <p> &nbsp; Name of end time column <input type = "text" name = "end_time_col" /></p>
+         <div style="text-align:center">
+         <input type = "submit""/>
+         </div>
+      </form>   
+   </body>
+</html>
+
